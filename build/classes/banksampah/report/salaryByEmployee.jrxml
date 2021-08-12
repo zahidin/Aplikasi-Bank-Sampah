@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4e4fc0c7-e24e-4b0c-ae91-3f83e434e193">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="113"/>
+	<parameter name="noTransaction" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="terbilang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     DATE_FORMAT(salary_employee.created_at,'%d-%m-%Y') AS 'Tanggal',
+     salary_employee.`no_transaction` AS No_Transaksi,
+     users.`name` AS Nama,
+     salary_employee.`basic_salary` AS Gaji_Pokok,
+     salary_employee.`overtime_salary` AS Uang_Lembur,
+     salary_employee.`meal_salary` AS Uang_Makan,
+     salary_employee.`tax` AS PPh_21,
+     salary_employee.`insurance` AS Asuransi_Kesehatan,
+     salary_employee.`created_at` AS salary_employee_created_at,
+     users.`no_account` AS users_no_account,
+     users.`role` AS users_role
+FROM
+     `users` users INNER JOIN `salary_employee` salary_employee ON users.`id_user` = salary_employee.`id_user` WHERE no_transaction = $P{noTransaction}]]>
+	</queryString>
+	<field name="Tanggal" class="java.lang.String"/>
+	<field name="No_Transaksi" class="java.lang.String"/>
+	<field name="Nama" class="java.lang.String"/>
+	<field name="Gaji_Pokok" class="java.lang.Integer"/>
+	<field name="Uang_Lembur" class="java.lang.Integer"/>
+	<field name="Uang_Makan" class="java.lang.Integer"/>
+	<field name="PPh_21" class="java.lang.Integer"/>
+	<field name="Asuransi_Kesehatan" class="java.lang.Integer"/>
+	<field name="salary_employee_created_at" class="java.sql.Timestamp"/>
+	<field name="users_no_account" class="java.lang.String"/>
+	<field name="users_role" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="1" width="555" height="90" uuid="2b39a013-33fe-4c8e-bbc5-91450589182c"/>
+				<imageExpression><![CDATA["/Users/zahid/NetBeansProjects/BankSampah/src/banksampah/image/kop.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="55" height="20" uuid="699b2476-5538-4430-bacc-bcbf4d991c54"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="55" height="20" uuid="5781e7bb-3b8c-4dc4-a013-492db5369c42"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="55" height="20" uuid="66644ae2-4f8a-460b-b022-0c619ab603e3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jabatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="55" height="20" uuid="7a62a2aa-f3e4-4a7f-9315-a2dfa2d79d2d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="555" height="22" uuid="4711ebed-8ebb-47cc-a273-e27a97a8a3a5"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SLIP GAJI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="0" width="27" height="20" uuid="0e4afde9-9c95-42a8-8a02-8c5d81ff554d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="20" width="27" height="20" uuid="4c8058d9-1dba-4bcd-91dc-ba97ba2faf8a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="40" width="27" height="20" uuid="969b9eaa-c9f7-4755-a40d-bc95eae7f834"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="60" width="27" height="20" uuid="7ce8d3ed-cd4c-44ce-adeb-a17e71946d85"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="20" width="100" height="20" uuid="37b57ddd-e8d5-4245-8386-b3438cc7e9c8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="100" height="20" uuid="57235dd2-f602-4f23-aee9-d2fd190e19c5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{users_no_account}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="40" width="100" height="20" uuid="2c2aaa07-a6a2-43c3-bb72-54b45f4de73b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{users_role}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="60" width="100" height="20" uuid="aef183ad-9329-4add-89f4-4d4e56a7d4bd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="24" width="555" height="1" uuid="4b563275-1dae-4491-9412-f8a8ef66d722"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="25" width="82" height="20" uuid="e029776f-6de2-480b-bca8-4b0a7e3ca265"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Penerimaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="24" width="27" height="20" uuid="9d1e4584-bfd8-4d62-adfa-1a8596e2b43f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="27" width="82" height="20" uuid="a66adbae-7a22-4c3c-93bc-639fe14fdf13"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Potongan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="26" width="27" height="20" uuid="71e20bc9-d8e0-418e-84e3-d25be18f359b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="45" width="555" height="1" uuid="4c53e766-e3f4-4a7f-b60b-b4f35be8bbc0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="230" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="82" height="20" uuid="2d7adf17-f6a0-4d3f-8776-c08b1c21f9fc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gaji Pokok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="27" height="20" uuid="71e46011-ca79-4ffc-8b6c-acfa3f9be3e0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="82" height="20" uuid="75ae8c01-cfe0-4c42-bc7e-b7610ddec638"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lembur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="82" height="20" uuid="72c1d515-36e9-47e7-be7a-b4509df4bb51"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uang Makan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="36" width="27" height="20" uuid="548149a8-fe4a-4775-877f-f680efed25d6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="70" width="27" height="20" uuid="26444c58-6aaf-4c42-a0ea-c684bc35d3b6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="0" width="82" height="20" uuid="f7717d0f-b883-49db-9966-91bc3c5c6080"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PPh 21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="0" width="27" height="20" uuid="ad37085f-9918-4b6e-a466-3f5dabd52ca9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="20" width="130" height="20" uuid="36dede9e-2207-4cc1-9063-b7440a10e83a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asuransi Kesehatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="20" width="27" height="20" uuid="dbb0b4d2-620d-49c8-b6b9-35964a6491e2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="0" width="100" height="20" uuid="c43f7404-5eef-403f-bdd2-896e8ce64771"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Gaji_Pokok}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="36" width="100" height="20" uuid="d786a5ff-fdad-4a7f-a871-536a646bcf9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Uang_Lembur}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="70" width="100" height="20" uuid="23dbd392-694c-4aac-bdb9-ee4c6418c1e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Uang_Makan}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="90" height="20" uuid="41472c94-5031-44d6-9a59-880b61661490"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{PPh_21}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="20" width="90" height="20" uuid="1a1ddc78-1978-4cfa-832b-ef03704a723e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Asuransi_Kesehatan}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="110" width="109" height="20" uuid="df0a57cc-cf98-48dd-9822-5a460ed69d31"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Penerimaan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="110" width="100" height="20" uuid="43258795-0af2-4890-bfee-ba344a184a71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Gaji_Pokok}) + Double.valueOf($F{Uang_Lembur}) + Double.valueOf($F{Uang_Makan}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="110" width="109" height="20" uuid="404a44a2-fe3e-4667-8d68-bb918624e877"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Potongan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="465" y="110" width="90" height="20" uuid="351331ea-ab0c-4c8c-8cda-68b77dc8d055"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{PPh_21}) + Double.valueOf($F{Asuransi_Kesehatan}))]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="110" width="555" height="1" uuid="5ec40496-53cc-4a5d-b89b-78524f7e406d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="129" width="555" height="1" uuid="9094105f-9427-4b03-bacf-da81f6980292"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="156" width="109" height="20" uuid="c75cd128-3ef4-4c9f-acc8-0c3e2c0a8909"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gaji Bersih]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="156" width="100" height="20" uuid="62d55bc8-356d-484f-915e-9b6113fb86a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Gaji_Pokok}) + Double.valueOf($F{Uang_Lembur}) + Double.valueOf($F{Uang_Makan}) - Double.valueOf($F{PPh_21}) - Double.valueOf($F{Asuransi_Kesehatan}))]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="136" y="155" width="100" height="1" uuid="02262966-3a1f-426b-ba05-41222501c15c"/>
+			</line>
+			<line>
+				<reportElement x="136" y="175" width="100" height="1" uuid="742f83c2-055a-42a7-835d-19c86f70daaf"/>
+			</line>
+			<line>
+				<reportElement x="236" y="156" width="1" height="20" uuid="0476a556-d2d5-467f-a2ad-6fef31b5f726"/>
+			</line>
+			<line>
+				<reportElement x="135" y="156" width="1" height="20" uuid="879616b6-c213-47ef-a4b6-dc8e778d85e5"/>
+			</line>
+			<textField>
+				<reportElement x="136" y="193" width="416" height="21" uuid="6f40e698-8c9b-4ef6-b0d4-190cedcd0215"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{terbilang}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="193" width="107" height="21" uuid="1a6cf2be-94bb-492f-8fab-d830aec36b99"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Terbilang]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="122" splitType="Stretch">
+			<staticText>
+				<reportElement x="350" y="0" width="41" height="20" uuid="2edcc890-f2e7-44eb-b1b3-dba42e27e020"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="394" y="0" width="158" height="20" uuid="577e3c67-3889-4940-bb36-6e0324942830"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE d MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="381" y="99" width="109" height="20" uuid="bcc93c7d-8e70-4565-9921-16b2771c660d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dwitri Rhaiza Asha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="30" width="112" height="20" uuid="9b95853e-8081-4f69-9858-57bd216a5991"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Dibuat Oleh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="30" width="112" height="20" uuid="39ad1b1c-c719-4247-a108-0aba5bf29e50"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Diterima Oleh]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="99" width="85" height="20" uuid="11b041a3-3912-4b4a-aa3b-d96609e94720"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

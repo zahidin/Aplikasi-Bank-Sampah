@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8b089da-42a0-4e7d-91ae-1dbd8bc1cbbe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#7FFFD4">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFFFEA">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#8FCCB7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFE6DE">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#8FCCB7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFE6DE">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="category_trash" uuid="c82a3f8f-bab3-4714-b135-81240c0c712e">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     category_trash.`code` AS category_trash_code,
+     category_trash.`name` AS category_trash_name,
+     category_trash.`created_at` AS category_trash_created_at,
+     category_trash.`price_buy` AS category_trash_price_buy,
+     category_trash.`price_sell` AS category_trash_price_sell
+FROM
+     `category_trash` category_trash]]>
+		</queryString>
+		<field name="category_trash_code" class="java.lang.String"/>
+		<field name="category_trash_name" class="java.lang.String"/>
+		<field name="category_trash_created_at" class="java.sql.Timestamp"/>
+		<field name="category_trash_price_buy" class="java.lang.Integer"/>
+		<field name="category_trash_price_sell" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     category_trash.`code` AS category_trash_code,
+     category_trash.`name` AS category_trash_name,
+     category_trash.`created_at` AS category_trash_created_at,
+     category_trash.`price_buy` AS category_trash_price_buy,
+     category_trash.`price_sell` AS category_trash_price_sell
+FROM
+     `category_trash` category_trash]]>
+	</queryString>
+	<field name="category_trash_code" class="java.lang.String"/>
+	<field name="category_trash_name" class="java.lang.String"/>
+	<field name="category_trash_created_at" class="java.sql.Timestamp"/>
+	<field name="category_trash_price_buy" class="java.lang.Integer"/>
+	<field name="category_trash_price_sell" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="555" height="90" uuid="efa5a074-3121-4747-97f3-e513ef96be2e"/>
+				<imageExpression><![CDATA["/Users/zahid/NetBeansProjects/BankSampah/src/banksampah/image/kop.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="22" uuid="a7a3cef2-c059-496b-aecc-c271c751b673"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN KATEGORI SAMPAH]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="61" y="0" width="372" height="125" uuid="5731bf47-d703-4157-ba28-2b86f0c62ca8"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="category_trash" uuid="5cc2ca6b-61a8-4967-bec4-c608ba93e389">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="360" uuid="70ad027f-4a29-4526-82df-2de4bbe96b46">
+						<jr:tableFooter style="table 2_TH" height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="360" height="30" uuid="8c3af6c7-92a2-4d13-a2fa-0a19f2e93da7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[JUMLAH]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:column width="90" uuid="eca805f8-3b3b-4b18-b309-b7debcc929c6">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="9a80ddd9-d376-4ae8-80e6-1aeeb2d7a781"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[KODE]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="de203eed-2121-433a-bd67-ce0e843ab830"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{category_trash_code}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="5e3d535d-3f47-4a35-9005-f2151e524d6f">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="d31c6c5e-6789-4424-9dde-1efb63224890"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[JENIS SAMPAH]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="b7d0d8a7-4912-492b-beb9-00dd8261dd2b"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{category_trash_name}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="aa74785c-6771-44ee-ab9a-f5d7f7a1c14f">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="5b652723-6dd0-4574-878b-08ddb81c3a69"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[HARGA BELI]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="15d85c3b-b41c-4845-b574-73ffe68d54d4"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{category_trash_price_buy}))]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="08db59b9-7baa-4d75-bf50-6999bd76ef42">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="3e98337b-18ea-4290-ba22-300c0d89b33d"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[HARGA JUAL]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="a4f78350-2506-483f-8f4d-ec69e0b18327"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{category_trash_price_sell}))]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="90" uuid="62713323-fef9-4778-a340-537aeadba4aa">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fd90281d-72ac-40ff-a366-db6ab7733ff0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TANGGAL DIBUAT]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 2_TH" height="31" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="31" uuid="f5e4a23a-4974-450b-9b7d-9874f47bf435"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="c033e806-6179-434e-afcc-079077d20a7f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[new SimpleDateFormat("d MMM yyyy",new java.util.Locale("id")).format($F{category_trash_created_at})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="57" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="384" y="6" width="158" height="20" uuid="eb9a4ac4-1bfc-487c-88a8-18c7eaa67ae0"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE d MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="340" y="6" width="41" height="20" uuid="bed7129d-8c32-4079-985b-66b7e0eaef07"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="37" width="112" height="20" uuid="11d2da48-40f8-43fe-aac8-e674a6ebfafa"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kepala Bank Sampah]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement x="354" y="58" width="109" height="20" uuid="8bebdb9d-5963-4984-ab12-a0390dd1dca6"/>
+				<text><![CDATA[Dwitri Rhaiza Asha]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

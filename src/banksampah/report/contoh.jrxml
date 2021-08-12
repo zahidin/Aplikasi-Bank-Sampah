@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71ab4864-bb7f-4522-9da2-9229c3b619a5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="banksampah.utils.terbilang"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="0cb65e3e-5273-4014-98d2-312b2897eea1">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     users.`id_user` AS users_id_user,
+     users.`name` AS users_name,
+     users.`username` AS users_username,
+     users.`password` AS users_password,
+     users.`no_account` AS users_no_account,
+     users.`address` AS users_address,
+     users.`telp` AS users_telp,
+     users.`saldo` AS users_saldo,
+     users.`role` AS users_role,
+     users.`created_at` AS users_created_at
+FROM
+     `users` users]]>
+		</queryString>
+		<field name="users_id_user" class="java.lang.Integer"/>
+		<field name="users_name" class="java.lang.String"/>
+		<field name="users_username" class="java.lang.String"/>
+		<field name="users_password" class="java.lang.String"/>
+		<field name="users_no_account" class="java.lang.String"/>
+		<field name="users_address" class="java.lang.String"/>
+		<field name="users_telp" class="java.lang.String"/>
+		<field name="users_saldo" class="java.lang.Integer"/>
+		<field name="users_role" class="java.lang.String"/>
+		<field name="users_created_at" class="java.sql.Timestamp"/>
+	</subDataset>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="257" y="39" width="100" height="20" uuid="02b3adb9-fa5e-40a8-9cf1-f196ed2b3b6f"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f44bde4-86a0-48b1-b497-35538ed82ff8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="75"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#8FCCB7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFE6DE">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#8FCCB7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFE6DE">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="garbageIn" uuid="a4a2be2a-8bb9-462e-95e5-f3c646c7f142">
+		<parameter name="startDate" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="endDate" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     DATE_FORMAT(transaction_trash_purchase.created_at,'%d-%m-%Y') AS 'Tanggal_Transaksi',
+     transaction_trash_purchase.`no_transaction` AS No_Transaksi,
+     users.`name` AS Nama,
+     category_trash.`name` AS Jenis_Sampah,
+     transaction_trash_purchase.`qty` AS Kg,
+     transaction_trash_purchase.`amount` AS Harga
+FROM
+     `users` users INNER JOIN `transaction_trash_purchase` transaction_trash_purchase ON users.`id_user` = transaction_trash_purchase.`id_user`
+     INNER JOIN `category_trash` category_trash ON transaction_trash_purchase.`id_category` = category_trash.`id_category`
+
+WHERE 
+	DATE(transaction_trash_purchase.created_at) BETWEEN DATE_FORMAT($P{startDate},"%Y-%m-%d") AND DATE_FORMAT($P{endDate}, "%Y-%m-%d");]]>
+		</queryString>
+		<field name="Tanggal_Transaksi" class="java.lang.String"/>
+		<field name="No_Transaksi" class="java.lang.String"/>
+		<field name="Nama" class="java.lang.String"/>
+		<field name="Jenis_Sampah" class="java.lang.String"/>
+		<field name="Kg" class="java.lang.Integer"/>
+		<field name="Harga" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="startDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     DATE_FORMAT(transaction_trash_purchase.created_at,'%d-%m-%Y') AS 'Tanggal_Transaksi',
+     transaction_trash_purchase.`no_transaction` AS No_Transaksi,
+     users.`name` AS Nama,
+     category_trash.`name` AS Jenis_Sampah,
+     transaction_trash_purchase.`qty` AS Kg,
+     transaction_trash_purchase.`amount` AS Harga
+FROM
+     `users` users INNER JOIN `transaction_trash_purchase` transaction_trash_purchase ON users.`id_user` = transaction_trash_purchase.`id_user`
+     INNER JOIN `category_trash` category_trash ON transaction_trash_purchase.`id_category` = category_trash.`id_category`;]]>
+	</queryString>
+	<field name="Tanggal_Transaksi" class="java.lang.String"/>
+	<field name="No_Transaksi" class="java.lang.String"/>
+	<field name="Nama" class="java.lang.String"/>
+	<field name="Jenis_Sampah" class="java.lang.String"/>
+	<field name="Kg" class="java.lang.Integer"/>
+	<field name="Harga" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="555" height="90" uuid="4fb45f87-fa29-4b3b-af07-61a35d88322c"/>
+				<imageExpression><![CDATA["/Users/zahid/NetBeansProjects/BankSampah/src/banksampah/image/kop.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="555" height="22" uuid="2221b3c6-4a8c-46fe-baee-e33c06bbd7de"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN TRANSAKSI SAMPAH MASUK]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="40" width="100" height="20" uuid="0ca0f327-edb5-4ea2-854b-2a6be14ceb9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format($P{startDate})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="40" width="100" height="20" uuid="bf2fe5f2-2a77-4aee-adcf-e1b2a6177451"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format($P{endDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="276" y="40" width="23" height="20" uuid="5ccbb916-405c-40bb-9efd-8f578fcda7f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[s/d]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="136" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="0" y="1" width="555" height="135" uuid="34a7a627-af5f-4a5c-b3dc-61398dc14027"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="garbageIn" uuid="c672fd67-65d0-4d4e-95c8-1382eef2083a">
+						<datasetParameter name="startDate">
+							<datasetParameterExpression><![CDATA[$P{startDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="endDate">
+							<datasetParameterExpression><![CDATA[$P{endDate}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="450" uuid="ad6fff8e-257d-4711-808c-5ba68e3671d0">
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="450" height="30" uuid="f820f7a3-694a-4e17-b881-cef54f33cddc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[JUMLAH]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:column width="90" uuid="1df2f3e2-f047-4076-a594-91825e660b36">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="17a92f15-8c44-44b6-9434-3f39ebcb92e4"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[NO TRANSAKSI]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:tableFooter style="table 2_TH" height="0" rowSpan="1"/>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="5fddc5b4-d48f-4dba-b381-2628a79ff086"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{No_Transaksi}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="44ca3095-fa7b-49af-861d-0de66291dbcb">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="e0906b83-03a9-4089-aaef-87e102bd9ec1"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[NAMA NASABAH]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:tableFooter style="table 2_TH" height="0" rowSpan="1"/>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="f28786ad-ca2f-44a9-a443-8c4656f41005"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="b44c0e8f-9853-4dfd-b5db-8de46bd43cae">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="7dce4641-bebb-4fe2-8fbe-658b4bb11974"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[JENIS SAMPAH]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:tableFooter style="table 2_TH" height="0" rowSpan="1"/>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="17de53fc-f3f8-47cf-9ed0-c300427e9aa8"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{Jenis_Sampah}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="0a8140b1-415f-41ea-9081-d242bb47fc66">
+							<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="7168d0ce-14fb-4fd6-bce4-237a24902ab1"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[BERAT (kg)]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:tableFooter style="table 2_TH" height="0" rowSpan="1"/>
+							<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="52b56da4-26bc-4745-bd22-f4cef426dafb"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{Kg}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:columnGroup width="90" uuid="ca3a6992-4917-4413-91b7-25d7c6ac6059">
+							<jr:column width="90" uuid="dee9bf67-df59-493c-b023-dea555ae1aab">
+								<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="90" height="30" uuid="ee981dcf-3a1a-4b93-9268-f6f14e2733e9"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font isBold="true"/>
+										</textElement>
+										<text><![CDATA[HARGA]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="90" height="20" uuid="0ef6a53d-e70a-4518-876b-40ba4a7f5301"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp #,##0", new DecimalFormatSymbols(Locale.GERMAN)).format(Double.valueOf($F{Harga}))]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+					<jr:column width="90" uuid="53754e07-bcde-4c83-8031-fe05e59af7e0">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="2c1104dc-c61b-42d0-8282-c4ba8993f17f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TANGGAL TRANSAKSI]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 2_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ab40d8e8-798a-49a4-9971-73a56352fa1e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8237cae9-c9e5-4499-b3c8-501006b42f1e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Tanggal_Transaksi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="338" y="0" width="41" height="20" uuid="246b0473-996b-48f7-b3b0-05ed069f14e5"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="384" y="0" width="158" height="20" uuid="f12dd7b6-9041-492d-9d6e-ae294f5f2893"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE d MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="354" y="20" width="112" height="20" uuid="bc2f90bd-cfcd-4032-a98a-0cd0a67d4e9e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kepala Bank Sampah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="91" width="109" height="20" uuid="2b6dee57-e15e-4546-86ca-5bd6772e7594"/>
+				<text><![CDATA[Dwitri Rhaiza Asha]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
